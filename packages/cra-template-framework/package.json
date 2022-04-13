@@ -1,6 +1,6 @@
 {
   "name": "cra-template-framework",
-  "version": "1.0.1-alpha.0",
+  "version": "1.1.0",
   "private": false,
   "description": "Template for Create React App supporting TypeScript with Prettier and ESlint config recommended by react-app.",
   "husky": {
