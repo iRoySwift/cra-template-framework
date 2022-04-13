@@ -1,34 +1,15 @@
 {
   "name": "cra-template-framework",
-  "version": "0.1.0",
   "private": true,
-  "description": "Template for Create React App supporting TypeScript with Prettier and ESlint config recommended by react-app.",
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint && yarn lint:css"
-    }
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "cd packages/example && yarn && yarn start",
+    "update:dependencies": "cd packages/example && yarn upgrade-interactive --latest",
+    "publish:cra": "lerna publish"
   },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iRoySwift/cra-template-framework.git"
-  },
-  "homepage": "https://github.com/iRoySwift/cra-template-framework.git",
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "engines": {
-    "node": ">=14.8.0",
-    "npm": ">=6.14.7",
-    "yarn": ">=1.22.10"
+  "devDependencies": {
+    "lerna": "^4.0.0"
   }
 }

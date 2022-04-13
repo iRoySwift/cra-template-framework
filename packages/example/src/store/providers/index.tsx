@@ -9,7 +9,7 @@ const AppContext = createContext({
 
 interface Props {}
 const withProviders =
-  (Comp: React.ComponentType): React.FC<Props> =>
+  (Comp): React.FC<Props> =>
   (props) => {
     const [state, dispatch] = useReducer(reducer, initState);
     return (
