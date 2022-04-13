@@ -44,7 +44,7 @@ The CRA Custom Template does not yet have support for `devDependencies`, so I re
 ```json
 {
   "name": "cra-template-framework",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Template for Create React App supporting TypeScript with Prettier and ESlint config recommended by react-app.",
   "dependencies": {
