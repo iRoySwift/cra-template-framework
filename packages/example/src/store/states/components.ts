@@ -1,4 +1,4 @@
 const initComponents: State.Components = {
-  mobileMenuVisible: false
+    mobileMenuVisible: false
 };
 export default initComponents;

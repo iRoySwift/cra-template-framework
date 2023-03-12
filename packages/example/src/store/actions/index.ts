@@ -1,11 +1,11 @@
 export enum AppActions {
-  ResizeWindow = 'resizeWindow',
-  UpdateLoading = 'updateLoading',
-  UpdateAppLanguage = 'updateAppLanguage'
+    ResizeWindow = "resizeWindow",
+    UpdateLoading = "updateLoading",
+    UpdateAppLanguage = "updateAppLanguage"
 }
 
 export enum ComponentsActions {
-  UpdateHeaderMobileMenuVisible = 'updateHeaderMobileMenuVisible'
+    UpdateHeaderMobileMenuVisible = "updateHeaderMobileMenuVisible"
 }
 
 export type StateActions = AppActions | ComponentsActions;

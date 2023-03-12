@@ -1,6 +1,6 @@
 interface Window {
-  webkitRequestAnimationFrame?: any;
-  webkitCancelAnimationFrame?: any;
+    webkitRequestAnimationFrame?: any;
+    webkitCancelAnimationFrame?: any;
 }
 
 export default Window;

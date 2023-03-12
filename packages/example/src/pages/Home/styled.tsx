@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import { styled, keyframes } from "@mui/material";
 
 const rotate = keyframes`
   from {
@@ -9,24 +9,24 @@ const rotate = keyframes`
   }
 `;
 
-export const HomePanel = styled.header`
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  > a {
-    color: #61dafb;
-  }
+export const HomePanel = styled(`header`)`
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    > a {
+        color: #61dafb;
+    }
 `;
 
-export const LogoImage = styled.img`
-  height: 40vmin;
-  pointer-events: none;
-  @media (prefers-reduced-motion: no-preference) {
-    animation: ${rotate} infinite 20s linear;
-  }
+export const LogoImage = styled(`img`)`
+    height: 40vmin;
+    pointer-events: none;
+    @media (prefers-reduced-motion: no-preference) {
+        animation: ${rotate} infinite 20s linear;
+    }
 `;
