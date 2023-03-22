@@ -4,9 +4,9 @@ import Loadable from "@/components/Loadable";
 
 import MainLayout from "@/layout/MainLayout";
 const DashBoard = Loadable(lazy(() => import("@/pages/dashboard")));
-const Colors = Loadable(lazy(() => import("@/components/OverviewComponents/Colors")));
-const Typography = Loadable(lazy(() => import("@/components/OverviewComponents/Typography")));
-const Shadow = Loadable(lazy(() => import("@/components/OverviewComponents/Shadow")));
+const Colors = Loadable(lazy(() => import("@/pages/OverviewComponents/Colors")));
+const Typography = Loadable(lazy(() => import("@/pages/OverviewComponents/Typography")));
+const Shadow = Loadable(lazy(() => import("@/pages/OverviewComponents/Shadow")));
 const MuiIcon = Loadable(lazy(() => import("@/pages/MuiIcon")));
 const NotFoundPage = Loadable(lazy(() => import("@/pages/404/index")));
 

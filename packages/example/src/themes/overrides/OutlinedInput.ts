@@ -1,5 +1,7 @@
 // material-ui
-import { alpha } from "@mui/material/styles";
+// import { alpha } from "@mui/material/styles";
+
+import { alpha } from "@mui/material";
 
 // ==============================|| OVERRIDES - OUTLINED INPUT ||============================== //
 

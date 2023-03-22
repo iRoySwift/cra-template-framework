@@ -6,29 +6,19 @@ const DashBoard: React.FC<Props> = () => {
     return (
         <div>
             <Button variant="contained">Primary</Button>
-            <Button
-                variant="contained"
-                color="secondary">
+            <Button variant="contained" color="secondary">
                 Secondary
             </Button>
-            <Button
-                variant="contained"
-                color="info">
+            <Button variant="contained" color="info">
                 Info
             </Button>
-            <Button
-                variant="contained"
-                color="success">
+            <Button variant="contained" color="success">
                 Success
             </Button>
-            <Button
-                variant="contained"
-                color="warning">
+            <Button variant="contained" color="warning">
                 Warning
             </Button>
-            <Button
-                variant="contained"
-                color="error">
+            <Button variant="contained" color="error">
                 Error
             </Button>
         </div>

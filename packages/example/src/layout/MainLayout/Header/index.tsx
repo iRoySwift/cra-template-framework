@@ -19,18 +19,8 @@ const Header: React.FC<Props> = ({ open, handleDrawerToggle }) => {
     const MainHeader = () => {
         return (
             <Toolbar>
-                <IconButton
-                    disableRipple
-                    aria-label="open drawer"
-                    edge="start"
-                    color="secondary"
-                    onClick={handleDrawerToggle}
-                    sx={{ color: "text.primary", bgcolor: iconBackColorOpen }}>
-                    {open ? (
-                        <FormatIndentDecreaseOutlined sx={{ fontSize: 20, color: "#333" }} />
-                    ) : (
-                        <FormatIndentIncreaseOutlined sx={{ fontSize: 20, color: "#333" }} />
-                    )}
+                <IconButton disableRipple aria-label="open drawer" edge="start" color="secondary" onClick={handleDrawerToggle} sx={{ color: "text.primary", bgcolor: iconBackColorOpen }}>
+                    {open ? <FormatIndentDecreaseOutlined sx={{ fontSize: 20, color: "#333" }} /> : <FormatIndentIncreaseOutlined sx={{ fontSize: 20, color: "#333" }} />}
                 </IconButton>
             </Toolbar>
         );
@@ -54,9 +44,7 @@ const Header: React.FC<Props> = ({ open, handleDrawerToggle }) => {
                     <MainHeader />
                 </AppBar>
             ) : (
-                <AppBarStyled
-                    open={open}
-                    {...appBar}>
+                <AppBarStyled open={open} {...appBar}>
                     <MainHeader />
                 </AppBarStyled>
             )}

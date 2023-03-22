@@ -1,24 +1,4 @@
-import {
-    red,
-    pink,
-    purple,
-    deepPurple,
-    indigo,
-    blue,
-    lightBlue,
-    cyan,
-    teal,
-    green,
-    lightGreen,
-    lime,
-    yellow,
-    amber,
-    orange,
-    deepOrange,
-    brown,
-    grey,
-    blueGrey
-} from "@mui/material/colors";
+import { red, pink, purple, deepPurple, indigo, blue, lightBlue, cyan, teal, green, lightGreen, lime, yellow, amber, orange, deepOrange, brown, grey, blueGrey } from "@mui/material/colors";
 
 const colors = {
     red,
@@ -47,7 +27,7 @@ let No = [100, 200, 300, 400, 500, 600, 700, 800, 900, "A100", "A200", "A400", "
 type iColors = keyof typeof colors;
 type iColorsNo = (typeof No)[number];
 
-export type iPalette = {
+export type iPaletteColor = {
     [k in iColors]: {
         [k in iColorsNo]: string;
     };
@@ -66,7 +46,7 @@ export type iPalette = {
 
 // interface iP extends iPalette {}
 
-export const light: () => iPalette | {} = () => {
+export const light: () => iPaletteColor | {} = () => {
     let obj = {};
     Object.keys(colors).forEach(item => {
         No.forEach(el => {
@@ -79,7 +59,7 @@ export const light: () => iPalette | {} = () => {
     return obj;
 };
 
-export const dark: () => iPalette | {} = () => {
+export const dark: () => iPaletteColor | {} = () => {
     let obj = {};
     Object.keys(colors).forEach(item => {
         No.forEach((el, i) => {

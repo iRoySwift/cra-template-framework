@@ -1,5 +1,6 @@
-import { createTheme, CssBaseline, StyledEngineProvider, ThemeProvider } from "@mui/material";
+import { createTheme, CssBaseline, StyledEngineProvider, ThemeProvider, ThemeOptions as MuiThemeOptions, PaletteOptions, PaletteColorOptions } from "@mui/material";
 import { useMemo } from "react";
+import { Spacing } from "@mui/system";
 
 // project import
 import Palette from "./palette";
@@ -7,12 +8,24 @@ import CustomShadows from "./shadows";
 import Typography from "./typography";
 import componentsOverride from "./overrides/index";
 
-const ThemeCustomization = ({ children }) => {
-    const theme = Palette("light");
-    const themeTypography = Typography(`'Public Sans', sans-serif`);
-    const themeCustomShadows = useMemo(() => CustomShadows(theme), [theme]);
+export type CustomPaletteColorOptions = PaletteColorOptions & {
+    lighter?: string;
+};
+interface iPalette extends PaletteOptions {
+    primary?: CustomPaletteColorOptions;
+}
+export interface ThemeOptions extends MuiThemeOptions {
+    customShadows?: any;
+    spacing?: Spacing;
+    palette?: iPalette;
+}
 
-    const themeOptions: any = useMemo(
+const ThemeCustomization = ({ children }) => {
+    const palette = Palette("light");
+    const themeTypography = Typography(`'Public Sans', sans-serif`);
+    const themeCustomShadows = useMemo(() => CustomShadows(palette), [palette]);
+
+    const themeOptions: ThemeOptions = useMemo(
         () => ({
             breakpoints: {
                 values: {
@@ -31,11 +44,11 @@ const ThemeCustomization = ({ children }) => {
                     paddingBottom: 8
                 }
             },
-            palette: theme.palette,
+            palette,
             customShadows: themeCustomShadows,
             typography: themeTypography
         }),
-        [theme, themeTypography, themeCustomShadows]
+        [palette, themeTypography, themeCustomShadows]
     );
 
     const themes = createTheme(themeOptions);

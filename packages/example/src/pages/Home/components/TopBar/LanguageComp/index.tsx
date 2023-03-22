@@ -59,11 +59,7 @@ const LanguageMobileComp = () => {
                         setShowSubMenu(!showSubMenu);
                     }}>
                     <div className="mobile_menu_text">{languageText(currentLanguage())}</div>
-                    <img
-                        className="mobile_menu_icon"
-                        src={!showSubMenu ? WhiteDropdownIcon : WhiteDropUpIcon}
-                        alt="dropdown icon"
-                    />
+                    <img className="mobile_menu_icon" src={!showSubMenu ? WhiteDropdownIcon : WhiteDropUpIcon} alt="dropdown icon" />
                 </Button>
             </MobileMenuItem>
             {showSubMenu && (
@@ -74,9 +70,7 @@ const LanguageMobileComp = () => {
                             onClick={() => {
                                 hideMibleMenu(dispatch);
                             }}>
-                            <div className="mobile_menu_text">
-                                {currentLanguage() === "en" ? t("navBar.language_en") : t("navBar.language_zh")}
-                            </div>
+                            <div className="mobile_menu_text">{currentLanguage() === "en" ? t("navBar.language_en") : t("navBar.language_zh")}</div>
                         </Button>
                     </LanguageMobileMenuItem>
                     <LanguageMobileMenuItem>
@@ -86,9 +80,7 @@ const LanguageMobileComp = () => {
                                 handleLanguage(dispatch);
                                 hideMibleMenu(dispatch);
                             }}>
-                            <div className="mobile_menu_text">
-                                {currentLanguage() !== "en" ? t("navBar.language_en") : t("navBar.language_zh")}
-                            </div>
+                            <div className="mobile_menu_text">{currentLanguage() !== "en" ? t("navBar.language_en") : t("navBar.language_zh")}</div>
                         </Button>
                     </LanguageMobileMenuItem>
                 </div>
@@ -128,19 +120,10 @@ const LanguageComp: React.FC<Props> = () => {
                 }}>
                 <div className="header_language_content_panel">
                     <div>{languageText(currentLanguage())}</div>
-                    <img
-                        src={getDropdownIcon(showLanguage)}
-                        alt="dropdown icon"
-                    />
+                    <img src={getDropdownIcon(showLanguage)} alt="dropdown icon" />
                 </div>
             </Button>
-            {showLanguage && (
-                <DropDown
-                    setShow={setShowLanguage}
-                    left={languageLeft}
-                    top={languageTop}
-                />
-            )}
+            {showLanguage && <DropDown setShow={setShowLanguage} left={languageLeft} top={languageTop} />}
         </LanguageCompPanel>
     );
 };

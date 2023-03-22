@@ -18,13 +18,8 @@ const DropDown: React.FC<Props> = ({ left, top, setShow }) => {
         setShow(false);
     };
     return (
-        <DropDownPanel
-            left={left}
-            top={top}
-            onMouseLeave={hideDropdown}>
-            <Button
-                className="language__selected"
-                onClick={hideDropdown}>
+        <DropDownPanel left={left} top={top} onMouseLeave={hideDropdown}>
+            <Button className="language__selected" onClick={hideDropdown}>
                 {languageText(currentLanguage())}
             </Button>
             <div className="language__separate" />

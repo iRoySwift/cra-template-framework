@@ -10,17 +10,11 @@ const Home = () => {
         <Page>
             <Content>
                 <HomePanel>
-                    <LogoImage
-                        src={logo}
-                        alt="logo"
-                    />
+                    <LogoImage src={logo} alt="logo" />
                     <p>
                         {t("home.edit")} <code>src/App.tsx</code> {t("home.andSaveToReload")}
                     </p>
-                    <a
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer">
+                    <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
                         {t("home.learn")} React
                     </a>
                 </HomePanel>

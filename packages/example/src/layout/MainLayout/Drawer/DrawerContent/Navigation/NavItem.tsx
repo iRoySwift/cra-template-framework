@@ -26,14 +26,7 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
         itemTarget = "_blank";
     }
     let listItemProps = {
-        component: forwardRef<any>((props, ref) => (
-            <Link
-                ref={ref}
-                {...props}
-                to={item.url}
-                target={itemTarget}
-            />
-        ))
+        component: forwardRef<any>((props, ref) => <Link ref={ref} {...props} to={item.url} target={itemTarget} />)
     };
 
     const isSelected = openItem.findIndex(id => item.id === id) > -1;

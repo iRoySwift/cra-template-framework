@@ -19,6 +19,10 @@ const AppBarStyled = styled(AppBar, {
         ...(open && {
             marginLeft: drawerWidth,
             width: `calc(100% - ${drawerWidth}px)`
+        }),
+        ...(!open && {
+            marginLeft: `calc(${theme.spacing(7)} + 1px)`,
+            width: `calc(100% - calc(${theme.spacing(7)} + 1px))`
         })
     };
 });

@@ -17,4 +17,8 @@ declare namespace State {
     }
 }
 
-declare module "Routes";
+declare module "@mui/material/styles" {
+    interface Theme {
+        palette: iPalette;
+    }
+}

@@ -19,10 +19,7 @@ type Menu = {
 const MenuItemLink = ({ menu }: { menu: any }) => {
     const { url, type, name } = menu;
     return (
-        <MobileMenuLink
-            href={url}
-            key={name}
-            target={type === LinkType.Inner ? "_self" : "_blank"}>
+        <MobileMenuLink href={url} key={name} target={type === LinkType.Inner ? "_self" : "_blank"}>
             {menu.name}
         </MobileMenuLink>
     );
@@ -44,10 +41,7 @@ const MenusComp: React.FC<Props> = () => {
             {menuDataList()
                 .filter(menu => menu.name !== undefined)
                 .map((menu, i) => (
-                    <MenuItemLink
-                        key={i}
-                        menu={menu}
-                    />
+                    <MenuItemLink key={i} menu={menu} />
                 ))}
         </MobileMenuItem>
     ) : (
@@ -55,10 +49,7 @@ const MenusComp: React.FC<Props> = () => {
             {menuDataList()
                 .filter(menu => menu.name !== undefined)
                 .map((menu, i) => (
-                    <MenuItemLink
-                        key={i}
-                        menu={menu}
-                    />
+                    <MenuItemLink key={i} menu={menu} />
                 ))}
         </TopBarMenusPanel>
     );

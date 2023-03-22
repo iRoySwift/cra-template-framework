@@ -10,10 +10,7 @@ const LogoIcon =
 const LogoComp = () => {
     return (
         <TopBarLogoPanel to="/">
-            <img
-                src={LogoIcon}
-                alt="logo"
-            />
+            <img src={LogoIcon} alt="logo" />
             {isMobile() ? "" : <span>React</span>}
         </TopBarLogoPanel>
     );

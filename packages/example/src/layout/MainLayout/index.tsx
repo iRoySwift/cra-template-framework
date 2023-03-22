@@ -4,6 +4,7 @@ import { Box, Toolbar } from "@mui/material";
 import Drawer from "./Drawer";
 import Header from "./Header";
 import withLayoutContent, { closeDrawer, openDrawer, useLayoutDispatch, useLayoutState } from "@/content/withLayoutContent";
+import BreadCrumbs from "@/components/@extended/BreadCrumbs";
 // import { useAppDispatch, useAppSelector } from "@/hooks/store";
 // import { openDrawer } from "@/store/reducer/menu";
 
@@ -22,18 +23,11 @@ const MainLayout: React.FC<Props> = withLayoutContent(() => {
 
     return (
         <Box sx={{ display: "flex", width: "100%" }}>
-            <Header
-                open={drawer}
-                handleDrawerToggle={handleDrawerToggle}
-            />
-            <Drawer
-                open={drawer}
-                handleDrawerToggle={handleDrawerToggle}
-            />
-            <Box
-                component="main"
-                sx={{ width: "100%", flexGrow: 1 }}>
+            <Header open={drawer} handleDrawerToggle={handleDrawerToggle} />
+            <Drawer open={drawer} handleDrawerToggle={handleDrawerToggle} />
+            <Box component="main" sx={{ width: "100%", flexGrow: 1, p: { xs: 2, sm: 3 } }}>
                 <Toolbar />
+                <BreadCrumbs />
                 <Outlet />
             </Box>
         </Box>

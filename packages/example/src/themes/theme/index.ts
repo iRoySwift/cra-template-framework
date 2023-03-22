@@ -1,8 +1,7 @@
-import { iPalette } from "./colors";
+import { iPaletteColor } from "./colors";
 
-const Theme = (colors: iPalette) => {
+const Theme = (colors: iPaletteColor) => {
     const { blue, red, amber, cyan, green, grey } = colors;
-
     const contrastText = "#fff";
     return {
         primary: {

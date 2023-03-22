@@ -1,9 +1,6 @@
 import { ComponentsActions } from "../actions";
 
-const componentsReducer = (
-    state: State.AppState,
-    { type, payload }: { type: ComponentsActions; payload: State.Components }
-): State.AppState => {
+const componentsReducer = (state: State.AppState, { type, payload }: { type: ComponentsActions; payload: State.Components }): State.AppState => {
     switch (type) {
         case ComponentsActions.UpdateHeaderMobileMenuVisible:
             return {
