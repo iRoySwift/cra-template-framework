@@ -1,3 +1,4 @@
+import { useLayoutState } from "@/content/withLayoutContent";
 import { Box, List, Typography } from "@mui/material";
 import React from "react";
 import NavItem from "./NavItem";
@@ -6,6 +7,7 @@ interface Props {
     item: any;
 }
 const NavGroup: React.FC<Props> = ({ item }) => {
+    const { drawer } = useLayoutState();
     const navCollapse = item.children.map((menuItem, i) => {
         switch (item.type) {
             case "collapse":
@@ -28,12 +30,17 @@ const NavGroup: React.FC<Props> = ({ item }) => {
     return (
         <List
             subheader={
-                <Box sx={{ pl: 3, mb: 1.5 }}>
-                    <Typography variant="subtitle2" color="textSecondary">
-                        {item.title}
-                    </Typography>
-                </Box>
-            }>
+                item.title &&
+                drawer && (
+                    <Box sx={{ pl: 3, mb: 1.5 }}>
+                        <Typography variant="subtitle2" color="textSecondary">
+                            {item.title}
+                        </Typography>
+                        {/* only available in paid version */}
+                    </Box>
+                )
+            }
+            sx={{ mb: drawer ? 1.5 : 0, py: 0 }}>
             {navCollapse}
         </List>
     );

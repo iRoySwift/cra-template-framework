@@ -12,6 +12,7 @@ interface Props {}
 const MainLayout: React.FC<Props> = withLayoutContent(() => {
     const { drawer } = useLayoutState();
     const dispatch = useLayoutDispatch();
+    // store
     // const dispatch = useAppDispatch();
     // const { drawerOpen } = useAppSelector(state => state.menu);
     // const [open, setOpen] = useState(drawerOpen);
