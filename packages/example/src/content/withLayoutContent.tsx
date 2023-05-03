@@ -1,16 +1,19 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
+import { iLan, initAppLanguage } from "@/utils/i18n";
 
 interface Props {}
 
 enum LayoutAction {
     ACTIVE_ITEM = "ACTIVE_ITEM",
     OPEN_DRAWER = "OPEN_DRAWER",
-    CLOSE_DRAWER = "CLOSE_DRAWER"
+    CLOSE_DRAWER = "CLOSE_DRAWER",
+    CHANGE_LANGUAGE = "CHANGE_LANGUAGE"
 }
 
 const initialState = {
     openItem: ["dashboard"],
-    drawer: true
+    drawer: true,
+    language: navigator.language.includes("zh") ? "zh" : "en"
 };
 
 const reducer = (state, action) => {
@@ -27,6 +30,8 @@ const reducer = (state, action) => {
             return Object.assign({}, state, {
                 drawer: false
             });
+        case LayoutAction.CHANGE_LANGUAGE:
+            return Object.assign({}, state, { language: action.language });
         default:
             return state;
     }
@@ -42,7 +47,10 @@ const openDrawer = () => ({
 const closeDrawer = () => ({
     type: LayoutAction.CLOSE_DRAWER
 });
-
+const handleChangeLanguage = (v: iLan) => ({
+    type: LayoutAction.CHANGE_LANGUAGE,
+    language: v
+});
 const LayoutContent = createContext({
     state: initialState,
     dispatch: console.info
@@ -51,6 +59,9 @@ const withLayoutContent =
     (Component): React.FC<Props> =>
     props => {
         const [state, dispatch] = useReducer(reducer, initialState);
+        useEffect(() => {
+            initAppLanguage(state, dispatch);
+        }, []);
         return (
             <LayoutContent.Provider value={{ state, dispatch }}>
                 <Component {...props} />
@@ -61,5 +72,5 @@ const withLayoutContent =
 const useLayoutState = () => useContext(LayoutContent).state;
 const useLayoutDispatch = () => useContext(LayoutContent).dispatch;
 
-export { useLayoutState, useLayoutDispatch, activeItem, openDrawer, closeDrawer };
+export { useLayoutState, useLayoutDispatch, activeItem, openDrawer, closeDrawer, handleChangeLanguage };
 export default withLayoutContent;
