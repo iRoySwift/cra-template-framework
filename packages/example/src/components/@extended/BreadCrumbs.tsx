@@ -41,7 +41,7 @@ const BreadCrumbs: React.FC<Props> = () => {
 
     useEffect(() => {
         navigation.items.forEach(menu => {
-            if (menu.type && menu.type == "group") {
+            if (menu.type && menu.type === "group") {
                 getCollapse(menu);
             }
         });
@@ -50,7 +50,7 @@ const BreadCrumbs: React.FC<Props> = () => {
     let mainContent;
     let itemContent;
     let breadcrumbContent = <Typography />;
-    if (main && main.type == "collapse") {
+    if (main && main.type === "collapse") {
         mainContent = (
             <Typography component={Link} to={document.location.pathname} variant="h6" sx={{ textDecoration: "none" }} color="textSecondary">
                 {main.title}
@@ -61,7 +61,7 @@ const BreadCrumbs: React.FC<Props> = () => {
         event.preventDefault();
         console.info("You clicked a breadcrumb.");
     }
-    if (item && item.type == "item") {
+    if (item && item.type === "item") {
         itemContent = (
             <Typography variant="subtitle1" color="text.secondary">
                 {item.title}
