@@ -18,7 +18,7 @@ const Theme = (colors: iPaletteColor) => {
             contrastText
         },
         secondary: {
-            lighter: grey[50],
+            lighter: grey[100],
             100: grey[100],
             200: grey[200],
             light: grey[300],

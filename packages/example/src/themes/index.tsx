@@ -11,7 +11,7 @@ import componentsOverride from "./overrides/index";
 export type CustomPaletteColorOptions = PaletteColorOptions & {
     lighter?: string;
 };
-interface iPalette extends PaletteOptions {
+export interface iPalette extends PaletteOptions {
     primary?: CustomPaletteColorOptions;
 }
 export interface ThemeOptions extends MuiThemeOptions {

@@ -16,7 +16,7 @@ const Palette = mode => {
         },
         ...paletteColor,
         text: {
-            primary: paletteColor.grey[700],
+            primary: paletteColor.grey[900],
             secondary: paletteColor.grey[500],
             disabled: paletteColor.grey[400]
         },
@@ -31,18 +31,4 @@ const Palette = mode => {
     };
 };
 
-// type keys = ReturnType<typeof Palette>;
-// // type properties = keys;
-
-// // export interface iPalette extends PaletteOptions {
-// //     // [k in options]: any;
-// // }
-// export type iPalette = {
-//     [k in keyof keys]: {
-//         [t in keyof keys[k]]: string;
-//     };
-//     // [l in keyof  PaletteOptions]: {
-//     //     [m in keyof PaletteOptions[l]]: string;
-//     // };
-// } & PaletteOptions;
 export default Palette;
