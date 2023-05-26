@@ -1,6 +1,7 @@
 import { useLayoutState } from "@/content/withLayoutContent";
 import { Box, List, Typography } from "@mui/material";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import NavItem from "./NavItem";
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 }
 const NavGroup: React.FC<Props> = ({ item }) => {
     const { drawer } = useLayoutState();
+    const { t } = useTranslation();
     const navCollapse = item.children.map((menuItem, i) => {
         switch (item.type) {
             case "collapse":
@@ -34,9 +36,8 @@ const NavGroup: React.FC<Props> = ({ item }) => {
                 drawer && (
                     <Box sx={{ pl: 3, mb: 1.5 }}>
                         <Typography variant="subtitle2" color="textSecondary">
-                            {item.title}
+                            {t(`menu.${item.id}`)}
                         </Typography>
-                        {/* only available in paid version */}
                     </Box>
                 )
             }

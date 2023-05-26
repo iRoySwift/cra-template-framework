@@ -3,6 +3,7 @@ import { activeItem, useLayoutDispatch, useLayoutState } from "@/content/withLay
 // import { activeItem } from "@/store/reducer/menu";
 import { ListItemButton, ListItemIcon, ListItemText, useTheme } from "@mui/material";
 import React, { forwardRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
 }
 const NavItem: React.FC<Props> = ({ item, level }) => {
     const theme = useTheme();
+    const { t } = useTranslation();
     // store
     // const dispatch = useAppDispatch();
     // const menu = useAppSelector(state => state.menu);
@@ -46,7 +48,7 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
             onClick={() => handlerItem(item.id)}
             sx={{
                 pl: drawer ? `${level * 28}px` : 1.5,
-                py: !drawer && level == 1 ? 1.25 : 1,
+                py: !drawer && level === 1 ? 1.25 : 1,
                 ...(drawer && {
                     "&:hover": {
                         bgcolor: bgColor
@@ -97,7 +99,7 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
                     {itemIcon}
                 </ListItemIcon>
             )}
-            {drawer && <ListItemText primary={item.title} />}
+            {drawer && <ListItemText primary={t(`menu.${item.id}`)} />}
         </ListItemButton>
     );
 };
