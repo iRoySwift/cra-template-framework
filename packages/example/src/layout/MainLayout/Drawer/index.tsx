@@ -4,8 +4,6 @@ import MiniDrawerStyled from "./MiniDrawerStyled";
 import DrawerHeader from "./DrawerHeader";
 import DrawerContent from "./DrawerContent";
 import { drawerWidth } from "@/config";
-// import { ThemeOptions } from "@/themes";
-// import { drawerWidth } from "@/config";
 
 interface Props {
     open?: boolean;
@@ -14,10 +12,6 @@ interface Props {
 const MainDrawer: React.FC<Props> = ({ open, handleDrawerToggle }) => {
     const theme = useTheme();
     const matchDownMD = useMediaQuery(theme!.breakpoints!.down("lg"));
-    console.log("🚀 ~ file: index.tsx:14 ~ matchDownMD:", matchDownMD, open, Drawer, handleDrawerToggle);
-
-    // const container = window !== undefined ? () => window.document.body : undefined;
-
     const drawerHeader = useMemo(() => <DrawerHeader open={open} />, [open]);
     const drawerContent = useMemo(() => <DrawerContent />, []);
     return (

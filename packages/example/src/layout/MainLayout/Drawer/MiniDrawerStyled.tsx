@@ -1,8 +1,7 @@
-import { CSSObject, Drawer, styled } from "@mui/material";
+import { CSSObject, Drawer, Theme, styled } from "@mui/material";
 import { drawerWidth } from "@/config";
-import { ThemeOptions } from "@/themes";
 
-const openedMixin = (theme: ThemeOptions): CSSObject => ({
+const openedMixin = (theme: Theme): CSSObject => ({
     width: drawerWidth,
     borderRight: `1px solid ${theme.palette!.divider}`,
     transition: theme.transitions!.create!("width", {
@@ -12,7 +11,7 @@ const openedMixin = (theme: ThemeOptions): CSSObject => ({
     overflowX: "hidden"
 });
 
-const closedMixin = (theme: ThemeOptions): CSSObject => ({
+const closedMixin = (theme: Theme): CSSObject => ({
     transition: theme.transitions!.create!("width", {
         easing: theme.transitions!.easing!.sharp,
         duration: theme.transitions!.duration!.leavingScreen
@@ -20,7 +19,7 @@ const closedMixin = (theme: ThemeOptions): CSSObject => ({
     overflowX: "hidden",
     width: `calc(${theme!.spacing!(7)} + 4px)`,
     borderRight: "none",
-    boxShadow: theme.customShadows.z1
+    boxShadow: theme.shadows[0]
     // [theme.breakpoints.up("sm")]: {
     //     width: `calc(${theme.spacing(8)} + 1px)`
     // }
