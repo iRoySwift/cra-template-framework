@@ -1,6 +1,9 @@
 {
-    "extends": "./paths.json",
     "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        },
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],
         "moduleResolution": "node",
