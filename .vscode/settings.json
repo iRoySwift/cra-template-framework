@@ -1,0 +1,11 @@
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true,
+    "files.eol": "\r\n",
+    "files.trimTrailingWhitespace": true,
+    "javascript.format.semicolons": "insert",
+    "typescript.format.semicolons": "insert",
+    "prettier.trailingComma": "es5",
+    "prettier.tabWidth": 4
+}
