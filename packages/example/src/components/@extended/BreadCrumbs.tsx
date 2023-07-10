@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Box, Breadcrumbs as MuiBreadcrumbs, Grid, Typography } from "@mui/material";
+import {
+    Box,
+    Breadcrumbs as MuiBreadcrumbs,
+    Grid,
+    Typography,
+} from "@mui/material";
 import navigation from "@/menuItems";
 import { useLocation, Link } from "react-router-dom";
 
-interface Props {}
+interface Props {
+    title?: boolean;
+}
 interface iItem {
     id: string;
     title: string;
@@ -18,7 +25,7 @@ interface iMain {
     type: string;
     children: iItem[];
 }
-const BreadCrumbs: React.FC<Props> = () => {
+const BreadCrumbs: React.FC<Props> = ({ title }) => {
     const location = useLocation();
     const [main, setMain] = useState<iMain>();
     const [item, setItem] = useState<iItem>();
@@ -52,7 +59,12 @@ const BreadCrumbs: React.FC<Props> = () => {
     let breadcrumbContent = <Typography />;
     if (main && main.type === "collapse") {
         mainContent = (
-            <Typography component={Link} to={document.location.pathname} variant="h6" sx={{ textDecoration: "none" }} color="textSecondary">
+            <Typography
+                component={Link}
+                to={document.location.pathname}
+                variant="h6"
+                sx={{ textDecoration: "none" }}
+                color="textSecondary">
                 {main.title}
             </Typography>
         );
@@ -69,17 +81,34 @@ const BreadCrumbs: React.FC<Props> = () => {
         );
         if (item.breadcrumbs !== false) {
             breadcrumbContent = (
-                <Box sx={{ ml: 1 }} role="presentation" onClick={handleClick}>
-                    <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
+                <Box sx={{ mb: 3 }} role="presentation" onClick={handleClick}>
+                    <Grid
+                        container
+                        direction="column"
+                        justifyContent="flex-start"
+                        alignItems="flex-start"
+                        spacing={1}>
                         <Grid item>
                             <MuiBreadcrumbs aria-label="breadcrumb">
-                                <Typography component={Link} to="/" color="text.primary" variant="h6" sx={{ textDecoration: "none" }}>
+                                <Typography
+                                    component={Link}
+                                    to="/"
+                                    color="text.primary"
+                                    variant="h6"
+                                    sx={{ textDecoration: "none" }}>
                                     Home
                                 </Typography>
                                 {mainContent}
                                 {itemContent}
                             </MuiBreadcrumbs>
                         </Grid>
+                        {title && (
+                            <Grid item sx={{ mt: 2 }}>
+                                <Typography variant="h5">
+                                    {item.title}
+                                </Typography>
+                            </Grid>
+                        )}
                     </Grid>
                 </Box>
             );
