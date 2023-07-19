@@ -18,14 +18,18 @@ interface Props {
 }
 
 const LogoSection: React.FC<Props> = ({ sx, to, open }) => (
-    <ButtonBase disableRipple component={Link} to={!to ? config.defaultPath : to} sx={sx}>
+    <ButtonBase
+        disableRipple
+        component={Link}
+        to={!to ? config.defaultPath : to}
+        sx={sx}>
         {open ? <Logo /> : <MiniLogo />}
     </ButtonBase>
 );
 
 LogoSection.propTypes = {
     sx: PropTypes.object,
-    to: PropTypes.string
+    to: PropTypes.string,
 };
 
 export default LogoSection;
