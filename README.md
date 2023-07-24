@@ -7,3 +7,17 @@ Template for [Create React App](https://create-react-app.dev) supporting [TypeSc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit)
+
+## example
+
+-   添加依赖
+
+```npm
+lerna add echarts --scope=example
+```
+
+-   启动 example 项目
+
+```npm
+yarn start
+```
