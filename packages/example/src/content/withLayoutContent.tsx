@@ -7,28 +7,28 @@ enum LayoutAction {
     ACTIVE_ITEM = "ACTIVE_ITEM",
     OPEN_DRAWER = "OPEN_DRAWER",
     CLOSE_DRAWER = "CLOSE_DRAWER",
-    CHANGE_LANGUAGE = "CHANGE_LANGUAGE"
+    CHANGE_LANGUAGE = "CHANGE_LANGUAGE",
 }
 
 const initialState = {
     openItem: ["dashboard"],
     drawer: true,
-    language: navigator.language.includes("zh") ? "zh" : "en"
+    language: navigator.language.includes("zhCN") ? "zhCN" : "enUS",
 };
 
 const reducer = (state, action) => {
     switch (action.type) {
         case LayoutAction.ACTIVE_ITEM:
             return Object.assign({}, state, {
-                openItem: [action.openItem]
+                openItem: [action.openItem],
             });
         case LayoutAction.OPEN_DRAWER:
             return Object.assign({}, state, {
-                drawer: true
+                drawer: true,
             });
         case LayoutAction.CLOSE_DRAWER:
             return Object.assign({}, state, {
-                drawer: false
+                drawer: false,
             });
         case LayoutAction.CHANGE_LANGUAGE:
             return Object.assign({}, state, { language: action.language });
@@ -39,21 +39,21 @@ const reducer = (state, action) => {
 
 const activeItem = openItem => ({
     type: LayoutAction.ACTIVE_ITEM,
-    openItem
+    openItem,
 });
 const openDrawer = () => ({
-    type: LayoutAction.OPEN_DRAWER
+    type: LayoutAction.OPEN_DRAWER,
 });
 const closeDrawer = () => ({
-    type: LayoutAction.CLOSE_DRAWER
+    type: LayoutAction.CLOSE_DRAWER,
 });
 const handleChangeLanguage = (v: iLan) => ({
     type: LayoutAction.CHANGE_LANGUAGE,
-    language: v
+    language: v,
 });
 const LayoutContent = createContext({
     state: initialState,
-    dispatch: console.info
+    dispatch: console.info,
 });
 const withLayoutContent =
     (Component): React.FC<Props> =>
@@ -61,6 +61,7 @@ const withLayoutContent =
         const [state, dispatch] = useReducer(reducer, initialState);
         useEffect(() => {
             initAppLanguage(state, dispatch);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
         return (
             <LayoutContent.Provider value={{ state, dispatch }}>
@@ -72,5 +73,12 @@ const withLayoutContent =
 const useLayoutState = () => useContext(LayoutContent).state;
 const useLayoutDispatch = () => useContext(LayoutContent).dispatch;
 
-export { useLayoutState, useLayoutDispatch, activeItem, openDrawer, closeDrawer, handleChangeLanguage };
+export {
+    useLayoutState,
+    useLayoutDispatch,
+    activeItem,
+    openDrawer,
+    closeDrawer,
+    handleChangeLanguage,
+};
 export default withLayoutContent;
