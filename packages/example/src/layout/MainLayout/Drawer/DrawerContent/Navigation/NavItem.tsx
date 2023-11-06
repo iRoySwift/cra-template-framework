@@ -1,7 +1,16 @@
-import { activeItem, useLayoutDispatch, useLayoutState } from "@/content/withLayoutContent";
+import {
+    activeItem,
+    useLayoutDispatch,
+    useLayoutState,
+} from "@/content/withLayoutContent";
 // import { useAppSelector, useAppDispatch } from "@/hooks/store";
 // import { activeItem } from "@/store/reducer/menu";
-import { ListItemButton, ListItemIcon, ListItemText, useTheme } from "@mui/material";
+import {
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    useTheme,
+} from "@mui/material";
 import React, { forwardRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -27,14 +36,20 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
         dispatch(activeItem(id));
     };
     const Icon = item.icon;
-    const itemIcon = Icon ? <Icon style={{ fontSize: drawer ? "1rem" : "1.25rem" }} /> : false;
+    const itemIcon = Icon ? (
+        <Icon style={{ fontSize: drawer ? "1rem" : "1.25rem" }} />
+    ) : (
+        false
+    );
 
     let itemTarget = "_self";
     if (item.target) {
         itemTarget = "_blank";
     }
     let listItemProps = {
-        component: forwardRef<any>((props, ref) => <Link ref={ref} {...props} to={item.url} target={itemTarget} />)
+        component: forwardRef<any>((props, ref) => (
+            <Link ref={ref} {...props} to={item.url} target={itemTarget} />
+        )),
     };
 
     const isSelected = openItem.findIndex(id => item.id === id) > -1;
@@ -51,27 +66,27 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
                 py: !drawer && level === 1 ? 1.25 : 1,
                 ...(drawer && {
                     "&:hover": {
-                        bgcolor: bgColor
+                        bgcolor: bgColor,
                     },
                     "&.Mui-selected": {
                         borderRight: `2px solid ${theme.palette.primary.main}`,
                         bgcolor: bgColor,
-                        color: iconSelectedColor
-                    }
+                        color: iconSelectedColor,
+                    },
                 }),
                 ...(!drawer && {
                     "&:hover": {
-                        bgcolor: "transparent"
+                        bgcolor: "transparent",
                     },
                     "&.Mui-selected": {
                         borderRight: `2px solid ${theme.palette.primary.main}`,
                         bgcolor: "transparent",
                         color: iconSelectedColor,
                         "&:hover": {
-                            bgcolor: "transparent"
-                        }
-                    }
-                })
+                            bgcolor: "transparent",
+                        },
+                    },
+                }),
             }}>
             {itemIcon && (
                 <ListItemIcon
@@ -85,16 +100,16 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
                             alignItems: "center",
                             justifyContent: "center",
                             "&:hover": {
-                                bgcolor: "secondary.100"
-                            }
+                                bgcolor: "secondary.100",
+                            },
                         }),
                         ...(!drawer &&
                             isSelected && {
                                 bgcolor: "primary.lighter",
                                 "&:hover": {
-                                    bgcolor: "primary.lighter"
-                                }
-                            })
+                                    bgcolor: "primary.lighter",
+                                },
+                            }),
                     }}>
                     {itemIcon}
                 </ListItemIcon>
