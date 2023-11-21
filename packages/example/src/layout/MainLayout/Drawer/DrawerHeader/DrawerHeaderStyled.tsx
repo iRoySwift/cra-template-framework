@@ -10,6 +10,6 @@ const DrawerHeaderStyled = styled(Box)<BoxProps>(({ theme, open }) => ({
     alignItems: "center",
     justifyContent: "flex-start",
     ...(open && { paddingLeft: theme.spacing(3) }),
-    ...(!open && { justifyContent: "center" })
+    ...(!open && { justifyContent: "center" }),
 }));
 export default DrawerHeaderStyled;
