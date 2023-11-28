@@ -10,16 +10,25 @@ const DrawerHeader: React.FC<Props> = ({ open }) => {
     return (
         <DrawerHeaderStyled open={open}>
             <Stack direction="row" spacing={1} alignItems="center">
-                <Logo open={open} sx={{ ...(!open && { width: 35, height: 35 }) }} />
+                <Logo
+                    open={open}
+                    sx={{ ...(!open && { width: 35, height: 35 }) }}
+                />
                 {open && (
                     <Chip
                         label={process.env.REACT_APP_VERSION}
                         size="small"
                         component="a"
-                        href="https://github.com/codedthemes/mantis-free-react-admin-template"
+                        href="https://github.com/iRoySwift"
                         target="_blank"
                         clickable
-                        sx={{ height: 16, "& .MuiChip-label": { fontSize: "0.625rem", py: 0.25 } }}
+                        sx={{
+                            height: 16,
+                            "& .MuiChip-label": {
+                                fontSize: "0.625rem",
+                                py: 0.25,
+                            },
+                        }}
                     />
                 )}
             </Stack>
