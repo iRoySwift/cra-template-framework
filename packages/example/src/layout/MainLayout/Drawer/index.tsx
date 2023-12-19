@@ -30,8 +30,8 @@ const MainDrawer: React.FC<Props> = ({ open, handleDrawerToggle }) => {
                             boxSizing: "border-box",
                             borderRight: `1px solid ${theme.palette.divider}`,
                             boxShadow: "inherit",
-                            backgroundImage: "none"
-                        }
+                            backgroundImage: "none",
+                        },
                     }}>
                     {open && drawerHeader}
                     {open && drawerContent}
