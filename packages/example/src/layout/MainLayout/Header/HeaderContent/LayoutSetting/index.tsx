@@ -32,26 +32,30 @@ const LayoutSetting: React.FC<Props> = () => {
                             animation: "animate 2s ease-in-out infinite",
                             "@keyframes animate": {
                                 "0%": {
-                                    transform: "rotate(0deg)"
+                                    transform: "rotate(0deg)",
                                 },
                                 "50%,100%": {
-                                    transform: "rotate(360deg)"
-                                }
-                            }
-                        }
+                                    transform: "rotate(360deg)",
+                                },
+                            },
+                        },
                     }}
                     onClick={handleOpen}>
                     <SettingsIcon fontSize="small" />
                 </IconButton>
             </Box>
-            <Drawer anchor="right" variant="temporary" open={open} onClose={handleClose}>
+            <Drawer
+                anchor="right"
+                variant="temporary"
+                open={open}
+                onClose={handleClose}>
                 <Paper
                     sx={{
                         boxShadow: theme.shadows[0],
                         height: "100%",
                         maxWidth: 420,
                         minWidth: 285,
-                        width: "100%"
+                        width: "100%",
                     }}>
                     ss
                 </Paper>
