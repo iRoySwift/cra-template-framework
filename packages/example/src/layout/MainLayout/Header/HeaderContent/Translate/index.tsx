@@ -1,6 +1,12 @@
 import Transitions from "@/components/@extended/Transitions";
 import { GTranslate as GTranslateIcon } from "@mui/icons-material";
-import { Box, ClickAwayListener, IconButton, Paper, Popper } from "@mui/material";
+import {
+    Box,
+    ClickAwayListener,
+    IconButton,
+    Paper,
+    Popper,
+} from "@mui/material";
 import React, { useRef, useState } from "react";
 import LanguageList from "./LanguageList";
 
@@ -26,7 +32,10 @@ const Translate: React.FC<Props> = () => {
                     onClick={handleToggle}
                     disableRipple
                     color="secondary"
-                    sx={{ color: "text.primary", bgcolor: open ? iconBackColorOpen : iconBackColor }}
+                    sx={{
+                        color: "text.primary",
+                        bgcolor: open ? iconBackColorOpen : iconBackColor,
+                    }}
                     aria-label="open language"
                     aria-controls={open ? "language-grow" : undefined}
                     aria-haspopup="true">
@@ -46,10 +55,10 @@ const Translate: React.FC<Props> = () => {
                         {
                             name: "offset",
                             options: {
-                                offset: [0, 9]
-                            }
-                        }
-                    ]
+                                offset: [0, 9],
+                            },
+                        },
+                    ],
                 }}>
                 {({ TransitionProps }) => (
                     <Transitions type="fade" in={open} {...TransitionProps}>
