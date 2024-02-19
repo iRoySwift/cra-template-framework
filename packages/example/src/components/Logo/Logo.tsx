@@ -22,8 +22,8 @@ const Logo: React.FC<Props> = () => {
          */
         <>
             <svg
-                width="349"
-                height="42"
+                width="150"
+                height="30"
                 viewBox="0 0 349 42"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg">
