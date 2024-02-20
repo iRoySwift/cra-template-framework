@@ -3,31 +3,59 @@
 @tailwind utilities;
 
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+    --bkg: theme("colors.light.bkg");
+    --bkg-hover: theme("colors.light.bkg-hover");
+    --bkg-active: theme("colors.light.bkg-active");
+    --border: theme("colors.light.border");
+    --fgd-1: theme("colors.light.fgd-1");
+    --fgd-2: theme("colors.light.fgd-2");
+    --fgd-3: theme("colors.light.fgd-3");
+    --fgd-4: theme("colors.light.fgd-4");
+    --active: theme("colors.light.active.DEFAULT");
+    --active-dark: theme("colors.light.active.dark");
+    --down: theme("colors.light.down.DEFAULT");
+    --down-dark: theme("colors.light.down.dark");
+    --down-muted: theme("colors.light.down.muted");
+    --up: theme("colors.light.up.DEFAULT");
+    --up-dark: theme("colors.light.up.dark");
+    --up-muted: theme("colors.light.up.muted");
+    --link: theme("colors.light.link.DEFAULT");
+    --link-hover: theme("colors.light.link.hover");
+    --button: theme("colors.light.button.DEFAULT");
+    --button-hover: theme("colors.light.button.hover");
+    --input-bkg: theme("colors.light.input.bkg");
+    --input-border: theme("colors.light.input.border");
+    --input-border-hover: theme("colors.light.input.borderDark");
+    --error: theme("colors.light.error");
+    --success: theme("colors.light.success");
+    --warning: theme("colors.light.warning");
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
-}
-
-body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-            to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))
-        )
-        rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
+[data-theme="Dark"] {
+    --bkg: theme("colors.dark.bkg");
+    --bkg-hover: theme("colors.dark.bkg-hover");
+    --bkg-active: theme("colors.dark.bkg-active");
+    --border: theme("colors.dark.border");
+    --fgd-1: theme("colors.dark.fgd-1");
+    --fgd-2: theme("colors.dark.fgd-2");
+    --fgd-3: theme("colors.dark.fgd-3");
+    --fgd-4: theme("colors.dark.fgd-4");
+    --active: theme("colors.dark.active.DEFAULT");
+    --active-dark: theme("colors.dark.active.dark");
+    --down: theme("colors.dark.down.DEFAULT");
+    --down-dark: theme("colors.dark.down.dark");
+    --down-muted: theme("colors.dark.down.muted");
+    --up: theme("colors.dark.up.DEFAULT");
+    --up-dark: theme("colors.dark.up.dark");
+    --up-muted: theme("colors.dark.up.muted");
+    --link: theme("colors.dark.link.DEFAULT");
+    --link-hover: theme("colors.dark.link.hover");
+    --button: theme("colors.dark.button.DEFAULT");
+    --button-hover: theme("colors.dark.button.hover");
+    --input-bkg: theme("colors.dark.input.bkg");
+    --input-border: theme("colors.dark.input.border");
+    --input-border-hover: theme("colors.dark.input.borderDark");
+    --error: theme("colors.dark.error");
+    --success: theme("colors.dark.success");
+    --warning: theme("colors.dark.warning");
 }
