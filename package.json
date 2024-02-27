@@ -1,15 +1,15 @@
 {
-  "name": "cra-template-framework",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "start": "cd packages/example && yarn && yarn start",
-    "update:dependencies": "cd packages/example && yarn upgrade-interactive --latest",
-    "publish:cra": "lerna publish"
-  },
-  "devDependencies": {
-    "lerna": "^6.0.3"
-  }
+    "name": "cra-template-framework",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "start": "cd packages/example && yarn && yarn start",
+        "update:dependencies": "cd packages/example && yarn upgrade-interactive --latest",
+        "publish:cra": "lerna publish"
+    },
+    "devDependencies": {
+        "lerna": "^6.0.3"
+    }
 }

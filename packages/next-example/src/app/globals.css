@@ -29,6 +29,7 @@
     --error: theme("colors.light.error");
     --success: theme("colors.light.success");
     --warning: theme("colors.light.warning");
+    --tw-gradient-stops: theme("colors.neutral.200");
 }
 
 [data-theme="Dark"] {
