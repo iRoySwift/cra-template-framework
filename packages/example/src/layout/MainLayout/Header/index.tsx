@@ -1,16 +1,27 @@
 import React, { useEffect } from "react";
-import { AppBar, IconButton, Toolbar, useMediaQuery, useTheme } from "@mui/material";
-import { FormatIndentDecreaseOutlined, FormatIndentIncreaseOutlined } from "@mui/icons-material";
+import {
+    AppBar,
+    IconButton,
+    Toolbar,
+    useMediaQuery,
+    useTheme,
+} from "@mui/material";
+import {
+    FormatIndentDecreaseOutlined,
+    FormatIndentIncreaseOutlined,
+} from "@mui/icons-material";
 import AppBarStyled from "./AppBarStyled";
+import HeaderContent from "./HeaderContent";
+import { Theme } from "@mui/material/styles";
 
 interface Props {
     open?: boolean;
     handleDrawerToggle?: () => void;
 }
 const Header: React.FC<Props> = ({ open, handleDrawerToggle }) => {
-    const theme = useTheme();
+    const theme = useTheme<Theme>();
     const matchDownMD = useMediaQuery(theme.breakpoints.down("lg"));
-    // const iconBackColor = 'grey.100';
+    const iconBackColor = "grey.100";
     const iconBackColorOpen = "grey.200";
     useEffect(() => {
         console.log(theme);
@@ -19,9 +30,28 @@ const Header: React.FC<Props> = ({ open, handleDrawerToggle }) => {
     const MainHeader = () => {
         return (
             <Toolbar>
-                <IconButton disableRipple aria-label="open drawer" edge="start" color="secondary" onClick={handleDrawerToggle} sx={{ color: "text.primary", bgcolor: iconBackColorOpen }}>
-                    {open ? <FormatIndentDecreaseOutlined sx={{ fontSize: 20, color: "#333" }} /> : <FormatIndentIncreaseOutlined sx={{ fontSize: 20, color: "#333" }} />}
+                <IconButton
+                    disableRipple
+                    aria-label="open drawer"
+                    // edge="start"
+                    color="secondary"
+                    onClick={handleDrawerToggle}
+                    sx={{
+                        color: "text.primary",
+                        bgcolor: open ? iconBackColorOpen : iconBackColor,
+                        ml: { xs: 0, lg: -2 },
+                    }}>
+                    {open ? (
+                        <FormatIndentDecreaseOutlined
+                            sx={{ fontSize: 20, color: "#333" }}
+                        />
+                    ) : (
+                        <FormatIndentIncreaseOutlined
+                            sx={{ fontSize: 20, color: "#333" }}
+                        />
+                    )}
                 </IconButton>
+                <HeaderContent />
             </Toolbar>
         );
     };
@@ -32,9 +62,9 @@ const Header: React.FC<Props> = ({ open, handleDrawerToggle }) => {
         color: "inherit",
         elevation: 0,
         sx: {
-            borderBottom: `1px solid ${theme.palette.divider}`
+            borderBottom: `1px solid ${theme.palette.divider}`,
             // boxShadow: theme.customShadows.z1
-        }
+        },
     };
 
     return (
