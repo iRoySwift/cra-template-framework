@@ -4,13 +4,13 @@ import { Window } from "@mui/icons-material";
 
 // icons
 const icons = {
-    Window
+    Window,
 };
 
 // ==============================|| MENU ITEMS - DASHBOARD ||============================== //
 
 const dashboard = {
-    id: "group-dashboard",
+    id: "navigation",
     title: "Navigation",
     type: "group",
     children: [
@@ -18,11 +18,11 @@ const dashboard = {
             id: "dashboard",
             title: "Dashboard",
             type: "item",
-            url: "/dashboard/default",
+            url: "/",
             icon: icons.Window,
-            breadcrumbs: false
-        }
-    ]
+            breadcrumbs: false,
+        },
+    ],
 };
 
 export default dashboard;

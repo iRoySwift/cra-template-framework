@@ -4,11 +4,15 @@ import Loadable from "@/components/Loadable";
 
 import MainLayout from "@/layout/MainLayout";
 const DashBoard = Loadable(lazy(() => import("@/pages/dashboard")));
-const Colors = Loadable(lazy(() => import("@/pages/OverviewComponents/Colors")));
-const Typography = Loadable(lazy(() => import("@/pages/OverviewComponents/Typography")));
-const Shadow = Loadable(lazy(() => import("@/pages/OverviewComponents/Shadow")));
-const MuiIcon = Loadable(lazy(() => import("@/pages/MuiIcon")));
-const NotFoundPage = Loadable(lazy(() => import("@/pages/404/index")));
+const Colors = Loadable(
+    lazy(() => import("@/pages/OverviewComponents/Colors"))
+);
+const Typography = Loadable(
+    lazy(() => import("@/pages/OverviewComponents/Typography"))
+);
+const MuiIcon = Loadable(
+    lazy(() => import("@/pages/OverviewComponents/MuiIcon"))
+);
 
 const MainRoute: RouteObject = {
     path: "/",
@@ -16,37 +20,20 @@ const MainRoute: RouteObject = {
     children: [
         {
             path: "/",
-            element: <DashBoard />
-        },
-        {
-            path: "dashboard",
-            children: [
-                {
-                    path: "default",
-                    element: <DashBoard />
-                }
-            ]
+            element: <DashBoard />,
         },
         {
             path: "typography",
-            element: <Typography />
-        },
-        {
-            path: "shadow",
-            element: <Shadow />
+            element: <Typography />,
         },
         {
             path: "color",
-            element: <Colors />
+            element: <Colors />,
         },
         {
             path: "MuiIcon",
-            element: <MuiIcon />
+            element: <MuiIcon />,
         },
-        {
-            path: "404",
-            element: <NotFoundPage />
-        }
-    ]
+    ],
 };
 export default MainRoute;

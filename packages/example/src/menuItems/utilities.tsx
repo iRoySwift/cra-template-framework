@@ -1,22 +1,26 @@
 // assets
-import { ContrastOutlined, FormatColorFillOutlined, HorizontalSplit, TextFieldsOutlined } from "@mui/icons-material";
+import {
+    ContrastOutlined,
+    FormatColorFillOutlined,
+    HorizontalSplit,
+    TextFieldsOutlined,
+} from "@mui/icons-material";
 
 // icons
 const icons = {
     TextFieldsOutlined,
     FormatColorFillOutlined,
     ContrastOutlined,
-    HorizontalSplit
+    HorizontalSplit,
 };
 
-const Barcode = () => (
-    <svg viewBox="64 64 896 896" focusable="false" data-icon="barcode" width="1em" height="1em" fill="currentColor" aria-hidden="true">
-        <path d="M120 160H72c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8zm833 0h-48c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8zM200 736h112c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8H200c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm321 0h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm126 0h178c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8H647c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm-255 0h48c4.4 0 8-3.6 8-8V168c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8zm-79 64H201c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm257 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm256 0H648c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h178c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zm-385 0h-48c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path>
-    </svg>
-);
-
 const MuiIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 36 32" fill="none">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 36 32"
+        fill="none">
         <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -33,35 +37,30 @@ const utilities = {
     type: "group",
     children: [
         {
-            id: "util-typography",
+            id: "typography",
             title: "Typography",
             type: "item",
             url: "/typography",
-            icon: icons.TextFieldsOutlined
+            icon: icons.TextFieldsOutlined,
+            breadcrumbs: true,
         },
         {
-            id: "util-color",
+            id: "color",
             title: "Color",
             type: "item",
             url: "/color",
-            icon: icons.FormatColorFillOutlined
+            icon: icons.FormatColorFillOutlined,
+            breadcrumbs: true,
         },
         {
-            id: "util-shadow",
-            title: "Shadow",
-            type: "item",
-            url: "/shadow",
-            icon: Barcode
-        },
-        {
-            id: "Mui-icons",
+            id: "muiIcon",
             title: "Mui Icons",
             type: "item",
             url: "/MuiIcon",
             icon: MuiIcon,
-            breadcrumbs: false
-        }
-    ]
+            breadcrumbs: false,
+        },
+    ],
 };
 
 export default utilities;

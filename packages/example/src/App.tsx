@@ -1,15 +1,11 @@
 import Routes from "@/routes/index";
-import withProviders from "./store/providers";
-// import { useInitApp } from './hooks';
-import ThemeCustomization from "./themes";
+import ThemeCustomization from "./theme";
 
-const App = withProviders(() => {
-    // useInitApp();
+const App = () => {
     return (
         <ThemeCustomization>
             <Routes />
         </ThemeCustomization>
     );
-});
-
+};
 export default App;

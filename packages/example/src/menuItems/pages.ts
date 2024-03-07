@@ -4,7 +4,7 @@ import { Login, Assignment } from "@mui/icons-material";
 // icons
 const icons = {
     Login,
-    Assignment
+    Assignment,
 };
 
 // ==============================|| MENU ITEMS - EXTRA PAGES ||============================== //
@@ -20,7 +20,7 @@ const pages = {
             type: "item",
             url: "/login",
             icon: icons.Login,
-            target: true
+            target: true,
         },
         {
             id: "register",
@@ -28,9 +28,9 @@ const pages = {
             type: "item",
             url: "/register",
             icon: icons.Assignment,
-            target: true
-        }
-    ]
+            target: true,
+        },
+    ],
 };
 
 export default pages;
