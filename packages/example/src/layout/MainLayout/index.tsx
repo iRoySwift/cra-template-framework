@@ -3,7 +3,12 @@ import { Outlet } from "react-router-dom";
 import { Box, Toolbar } from "@mui/material";
 import Drawer from "./Drawer";
 import Header from "./Header";
-import withLayoutContent, { closeDrawer, openDrawer, useLayoutDispatch, useLayoutState } from "@/content/withLayoutContent";
+import withLayoutContent, {
+    closeDrawer,
+    openDrawer,
+    useLayoutDispatch,
+    useLayoutState,
+} from "@/content/withLayoutContent";
 import BreadCrumbs from "@/components/@extended/BreadCrumbs";
 // import { useAppDispatch, useAppSelector } from "@/hooks/store";
 // import { openDrawer } from "@/store/reducer/menu";
@@ -16,19 +21,22 @@ const MainLayout: React.FC<Props> = withLayoutContent(() => {
     // const dispatch = useAppDispatch();
     // const { drawerOpen } = useAppSelector(state => state.menu);
     // const [open, setOpen] = useState(drawerOpen);
-    // console.log("🚀 ~ file: index.tsx:14 ~ open:", open);
     const handleDrawerToggle = () => {
         // setOpen(!open);
         dispatch(drawer ? closeDrawer() : openDrawer());
     };
+    console.log(process.env);
 
     return (
         <Box sx={{ display: "flex", width: "100%" }}>
             <Header open={drawer} handleDrawerToggle={handleDrawerToggle} />
             <Drawer open={drawer} handleDrawerToggle={handleDrawerToggle} />
-            <Box component="main" sx={{ width: "100%", flexGrow: 1, p: { xs: 2, sm: 3 } }}>
+            <Box
+                component="main"
+                sx={{ width: "100%", flexGrow: 1, p: { xs: 2, sm: 3 } }}>
                 <Toolbar />
-                <BreadCrumbs />
+                <BreadCrumbs title />
+                <div>{process.env.ENV}</div>
                 <Outlet />
             </Box>
         </Box>
