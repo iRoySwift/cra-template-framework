@@ -26,14 +26,14 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
     // const dispatch = useAppDispatch();
     // const menu = useAppSelector(state => state.menu);
     // const { openItem } = menu;
-    // const handlerItem = id => {
-    //     dispatch(activeItem({ openItem: [id] }));
+    // const handlerItem = name => {
+    //     dispatch(activeItem({ openItem: [name] }));
     // };
 
     const { openItem, drawer } = useLayoutState();
     const dispatch = useLayoutDispatch();
-    const handlerItem = id => {
-        dispatch(activeItem(id));
+    const handlerItem = name => {
+        dispatch(activeItem(name));
     };
     const Icon = item.icon;
     const itemIcon = Icon ? (
@@ -48,11 +48,11 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
     }
     let listItemProps = {
         component: forwardRef<any>((props, ref) => (
-            <Link ref={ref} {...props} to={item.url} target={itemTarget} />
+            <Link ref={ref} {...props} to={item.path} target={itemTarget} />
         )),
     };
 
-    const isSelected = openItem.findIndex(id => item.id === id) > -1;
+    const isSelected = openItem.findIndex(id => item.name === id) > -1;
     const textColor = "text.primary";
     const iconSelectedColor = "primary.main";
     const bgColor = "primary.lighter";
@@ -60,7 +60,7 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
         <ListItemButton
             {...listItemProps}
             selected={isSelected}
-            onClick={() => handlerItem(item.id)}
+            onClick={() => handlerItem(item.name)}
             sx={{
                 pl: drawer ? `${level * 28}px` : 1.5,
                 py: !drawer && level === 1 ? 1.25 : 1,
@@ -114,7 +114,9 @@ const NavItem: React.FC<Props> = ({ item, level }) => {
                     {itemIcon}
                 </ListItemIcon>
             )}
-            {drawer && <ListItemText primary={t(`menu.${item.id}`)} />}
+            {drawer && (
+                <ListItemText primary={t(`menu.${item.name.toLowerCase()}`)} />
+            )}
         </ListItemButton>
     );
 };

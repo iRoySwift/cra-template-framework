@@ -8,9 +8,9 @@
             "register": "注册",
             "utilities": "工具",
             "typography": "排版",
-            "color": "色彩",
+            "colors": "色彩",
             "shadow": "阴影",
-            "muiIcon": "图标"
+            "muiicon": "图标"
         },
         "greeting": {
             "hello": "你好"

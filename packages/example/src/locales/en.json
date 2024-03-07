@@ -8,9 +8,9 @@
             "register": "Register",
             "utilities": "Utilities",
             "typography": "Typography",
-            "color": "Color",
+            "colors": "Colors",
             "shadow": "Shadow",
-            "muiIcon": "Mui Icons"
+            "muiicon": "Mui Icons"
         },
         "greeting": {
             "hello": "Hello"

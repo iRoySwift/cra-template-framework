@@ -2,16 +2,17 @@ import React from "react";
 import menuItems from "@/menuItems";
 import NavGroup from "./NavGroup";
 import { Box, Typography } from "@mui/material";
+import { routes } from "@/routes";
 interface Props {}
 const Navigation: React.FC<Props> = () => {
-    const navGroups = menuItems.items.map(item => {
+    const navGroups = routes.map((item, i) => {
         switch (item.type) {
             case "group":
-                return <NavGroup key={item.id} item={item} />;
+                return <NavGroup key={i} item={item} />;
             default:
                 return (
                     <Typography
-                        key={item.id}
+                        key={i}
                         variant="h6"
                         color="error"
                         align="center">

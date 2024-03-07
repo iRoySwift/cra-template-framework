@@ -5,23 +5,21 @@ import {
     Grid,
     Typography,
 } from "@mui/material";
-import navigation from "@/menuItems";
 import { useLocation, Link } from "react-router-dom";
+import { routes } from "@/routes";
 
 interface Props {
     title?: boolean;
 }
 interface iItem {
-    id: string;
-    title: string;
+    name: string;
     type: string;
     url: string;
     icon: any;
     breadcrumbs?: boolean;
 }
 interface iMain {
-    id: string;
-    title: string;
+    name: string;
     type: string;
     children: iItem[];
 }
@@ -36,7 +34,7 @@ const BreadCrumbs: React.FC<Props> = ({ title }) => {
                 if (collapse.type && collapse.type === "collapse") {
                     getCollapse(collapse);
                 } else if (collapse.type && collapse.type === "item") {
-                    if (location.pathname === collapse.url) {
+                    if (location.pathname.includes(collapse.path)) {
                         setMain(menu);
                         setItem(collapse);
                     }
@@ -47,7 +45,7 @@ const BreadCrumbs: React.FC<Props> = ({ title }) => {
     };
 
     useEffect(() => {
-        navigation.items.forEach(menu => {
+        routes.forEach(menu => {
             if (menu.type && menu.type === "group") {
                 getCollapse(menu);
             }
@@ -65,7 +63,7 @@ const BreadCrumbs: React.FC<Props> = ({ title }) => {
                 variant="h6"
                 sx={{ textDecoration: "none" }}
                 color="textSecondary">
-                {main.title}
+                {main.name}
             </Typography>
         );
     }
@@ -76,7 +74,7 @@ const BreadCrumbs: React.FC<Props> = ({ title }) => {
     if (item && item.type === "item") {
         itemContent = (
             <Typography variant="subtitle1" color="text.secondary">
-                {item.title}
+                {item.name}
             </Typography>
         );
         if (item.breadcrumbs !== false) {
@@ -96,7 +94,7 @@ const BreadCrumbs: React.FC<Props> = ({ title }) => {
                                     color="text.primary"
                                     variant="h6"
                                     sx={{ textDecoration: "none" }}>
-                                    Home
+                                    {main?.name}
                                 </Typography>
                                 {mainContent}
                                 {itemContent}
@@ -105,7 +103,7 @@ const BreadCrumbs: React.FC<Props> = ({ title }) => {
                         {title && (
                             <Grid item sx={{ mt: 2 }}>
                                 <Typography variant="h5">
-                                    {item.title}
+                                    {item.name}
                                 </Typography>
                             </Grid>
                         )}

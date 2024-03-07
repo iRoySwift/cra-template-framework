@@ -15,7 +15,7 @@ const NavGroup: React.FC<Props> = ({ item }) => {
             case "collapse":
                 return (
                     <Typography
-                        key={menuItem.id}
+                        key={i}
                         variant="caption"
                         color="error"
                         sx={{ p: 2.5 }}>
@@ -25,7 +25,7 @@ const NavGroup: React.FC<Props> = ({ item }) => {
             case "group":
                 return (
                     <NavItem
-                        key={`${menuItem.id}${i}`}
+                        key={`${menuItem.name}${i}`}
                         level={1}
                         item={menuItem}
                     />
@@ -47,11 +47,11 @@ const NavGroup: React.FC<Props> = ({ item }) => {
     return (
         <List
             subheader={
-                item.title &&
+                item.name &&
                 drawer && (
                     <Box sx={{ pl: 3, mb: 1.5 }}>
                         <Typography variant="subtitle2" color="textSecondary">
-                            {t(`menu.${item.id}`)}
+                            {t(`menu.${item.name.toLowerCase()}`)}
                         </Typography>
                     </Box>
                 )
