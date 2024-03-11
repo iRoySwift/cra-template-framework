@@ -15,7 +15,10 @@ interface Props {
 const Group: React.FC<Props> = props => {
     const { item, selected, drawer, handleSelect } = props;
     const [open, setOpen] = useState(false);
+    const [activeChild, setActiveGroup] = useState(false);
+
     const isSelected = selected == item.id;
+
     const hasChildren = item.children && item.children.length;
 
     const handleCollapse = useCallback((open: boolean) => {
@@ -33,16 +36,20 @@ const Group: React.FC<Props> = props => {
         [handleCollapse, handleSelect, hasChildren, open]
     );
 
+    // group class
     let groupSelectClas = !drawer ? "drawer" : "expanded";
-
     if (!drawer) {
         groupSelectClas = hasChildren
             ? "group-has-[.selected]:text-tw-link-active group-has-[.invisible]:hover:bg-tw-bkg-hover"
             : "hover:bg-tw-bkg-hover";
-
         groupSelectClas +=
             isSelected &&
-            "border-r-2 border-tw-link-active bg-tw-bkg-hover text-tw-link-active";
+            " border-r-2 border-tw-link-active bg-tw-bkg-hover text-tw-link-active";
+    } else {
+        groupSelectClas =
+            hasChildren && activeChild
+                ? "text-tw-link-active bg-tw-bkg-hover hover:!bg-tw-bkg-hover"
+                : "hover:bg-tw-bkg-hover";
     }
 
     return (
@@ -53,18 +60,17 @@ const Group: React.FC<Props> = props => {
                         {item.group}
                     </div>
                 )}
-                <div className={`text-tw-fgd-2  ${groupSelectClas}`}>
+                {/*  */}
+                <div
+                    className={`text-tw-fgd-2 ${drawer ? "m-2 mx-3 rounded-md hover:bg-tw-bkg-hover-2" : "p-2 pl-6 pr-4"} ${groupSelectClas} `}>
                     <a
                         className="my-1 block"
                         onClick={() => handleGroupClick(item)}>
                         <div
-                            className={`flex  cursor-pointer items-center justify-between text-sm leading-relaxed ${!drawer ? "p-2 pl-6 pr-4" : "p-2 pl-3"}`}>
+                            className={`flex  cursor-pointer items-center justify-between text-sm leading-relaxed `}>
                             <div
-                                className={`${!drawer ? "w-7" : "rounded-md hover:bg-tw-bkg-hover-2"}`}>
-                                <div
-                                    className={`${!drawer ? "h-4 w-4" : "flex h-9 w-9 items-center justify-center px-2"}`}>
-                                    {item.icon}
-                                </div>
+                                className={`${drawer ? " flex h-9 w-9 items-center justify-center px-2" : "mr-1 h-4 w-4"}`}>
+                                {item.icon}
                             </div>
                             {!drawer && (
                                 <div className="my-1 flex-1">{item.title}</div>
@@ -88,6 +94,7 @@ const Group: React.FC<Props> = props => {
                             item={el}
                             open={open}
                             selected={selected}
+                            setActiveGroup={setActiveGroup}
                             handleSelect={handleSelect}
                             handleCollapse={handleCollapse}
                         />

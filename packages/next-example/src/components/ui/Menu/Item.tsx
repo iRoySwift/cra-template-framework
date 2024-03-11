@@ -6,11 +6,19 @@ interface Props {
     open: boolean;
     selected: string;
     item: iItem;
+    setActiveGroup: (value: boolean) => void;
     handleSelect: (item: iItem) => void;
     handleCollapse: (value: boolean) => void;
 }
 const Item: React.FC<Props> = props => {
-    const { open, selected, item, handleSelect, handleCollapse } = props;
+    const {
+        open,
+        selected,
+        item,
+        setActiveGroup,
+        handleSelect,
+        handleCollapse,
+    } = props;
 
     let isSelected = useRef(false);
     isSelected.current = selected == item.id;
@@ -19,13 +27,14 @@ const Item: React.FC<Props> = props => {
         if (selected == item.id) {
             isSelected.current = true;
             handleCollapse(true);
+            setActiveGroup(true);
         } else {
             isSelected.current = false;
         }
         return () => {
             isSelected.current = false;
         };
-    }, [handleCollapse, item, selected]);
+    }, [handleCollapse, setActiveGroup, item, selected]);
     return (
         <div
             className={`${open ? "visible" : "invisible hidden"} text-tw-fgd-2`}>

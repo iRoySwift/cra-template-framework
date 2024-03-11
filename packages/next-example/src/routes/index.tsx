@@ -29,12 +29,12 @@ const dashboard: iRoute[] = [
             },
         ],
     },
-    // {
-    //     id: "navigation2",
-    //     title: "Navigation2",
-    //     group: "Navigation2",
-    //     icon: <Squares2X2Icon />,
-    // },
+    {
+        id: "navigation2",
+        title: "Navigation2",
+        group: "Navigation2",
+        icon: <Squares2X2Icon />,
+    },
 ];
 
 export { dashboard };
