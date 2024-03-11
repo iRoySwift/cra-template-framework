@@ -1,11 +1,30 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
+import { Switch as HeadSwitch } from "@headlessui/react";
+import Switch from "@/components/ui/Switch";
+import Dropdown from "@/components/ui/Dropdown";
+import MainLayout from "@/layout/MainLayout";
+import Button from "@/components/ui/Button/Button";
 
 export default function Home() {
+    const [enabled, setEnabled] = useState(false);
+
+    const handleChange = () => {
+        setEnabled(prev => !prev);
+    };
+
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="bg-gradient-to-r from-fuchsia-600 to-pink-300 text-3xl px-3 text-white p-2 pb-4 rounded-md">
-                work froward.
-            </div>
-        </main>
+        <div className="flex min-h-screen flex-col items-center  p-24 ">
+            <Switch
+                checked={enabled}
+                onChange={handleChange}
+                label="Toggle"
+                disabled
+            />
+            {/* <MyMenu /> */}
+            <Dropdown />
+            <Button />
+        </div>
     );
 }
