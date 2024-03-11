@@ -13,10 +13,10 @@ const MainLayout: React.FC<Props> = props => {
     const { drawer } = useDrawerStore();
 
     return (
-        <div className="flex w-full">
+        <div className="flex min-h-screen w-full">
             <Header drawer={drawer} />
             <Drawer drawer={drawer} />
-            <main className="w-full">{children}</main>
+            <main className="min-h-screen w-full">{children}</main>
         </div>
     );
 };

@@ -62,7 +62,7 @@ const Group: React.FC<Props> = props => {
                         <div
                             className={`flex  cursor-pointer items-center justify-between text-sm leading-relaxed ${!drawer ? "p-2 pl-6 pr-4" : "p-2 pl-3"}`}>
                             <div
-                                className={`${!drawer ? "w-7" : "hover:bg-tw-bkg-hover-2 rounded-md"}`}>
+                                className={`${!drawer ? "w-7" : "rounded-md hover:bg-tw-bkg-hover-2"}`}>
                                 <div
                                     className={`${!drawer ? "h-4 w-4" : "flex h-9 w-9 items-center justify-center px-2"}`}>
                                     {item.icon}
@@ -88,7 +88,6 @@ const Group: React.FC<Props> = props => {
                         <Item
                             key={i}
                             item={el}
-                            drawer={drawer}
                             open={open}
                             selected={selected}
                             handleSelect={handleSelect}
