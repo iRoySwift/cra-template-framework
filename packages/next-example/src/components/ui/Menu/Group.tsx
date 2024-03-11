@@ -15,9 +15,7 @@ interface Props {
 const Group: React.FC<Props> = props => {
     const { item, selected, drawer, handleSelect } = props;
     const [open, setOpen] = useState(false);
-    const [activeChild, setActiveGroup] = useState(false);
-
-    const isSelected = selected == item.id;
+    const [isSelected, setIsSelected] = useState(false);
 
     const hasChildren = item.children && item.children.length;
 
@@ -36,20 +34,35 @@ const Group: React.FC<Props> = props => {
         [handleCollapse, handleSelect, hasChildren, open]
     );
 
+    useEffect(() => {
+        let el =
+            hasChildren &&
+            item.children?.find(el => {
+                return el.id == selected;
+            });
+        if (selected == item.id || el) {
+            setIsSelected(true);
+        } else {
+            setIsSelected(false);
+        }
+
+        return () => {
+            setIsSelected(false);
+        };
+    }, [hasChildren, item, selected]);
+
     // group class
     let groupSelectClas = !drawer ? "drawer" : "expanded";
     if (!drawer) {
-        groupSelectClas = hasChildren
-            ? "group-has-[.selected]:text-tw-link-active group-has-[.invisible]:hover:bg-tw-bkg-hover"
-            : "hover:bg-tw-bkg-hover";
+        groupSelectClas = hasChildren ? "" : " hover:bg-tw-bkg-hover ";
         groupSelectClas +=
-            isSelected &&
-            " border-r-2 border-tw-link-active bg-tw-bkg-hover text-tw-link-active";
+            !hasChildren && isSelected
+                ? " border-r-2 border-tw-link-active bg-tw-bkg-hover text-tw-link-active "
+                : "";
     } else {
-        groupSelectClas =
-            hasChildren && activeChild
-                ? "text-tw-link-active bg-tw-bkg-hover hover:!bg-tw-bkg-hover"
-                : "hover:bg-tw-bkg-hover";
+        groupSelectClas = isSelected
+            ? " text-tw-link-active bg-tw-bkg-hover hover:!bg-tw-bkg-hover "
+            : " hover:bg-tw-bkg-hover ";
     }
 
     return (
@@ -62,7 +75,7 @@ const Group: React.FC<Props> = props => {
                 )}
                 {/*  */}
                 <div
-                    className={`text-tw-fgd-2 ${drawer ? "m-2 mx-3 rounded-md hover:bg-tw-bkg-hover-2" : "p-2 pl-6 pr-4"} ${groupSelectClas} `}>
+                    className={`text-tw-fgd-2 ${drawer ? "m-2 mx-3 rounded-md hover:bg-tw-bkg-hover-2" : "p-2 pl-6 pr-4"} ${groupSelectClas} group-has-[.selected]:text-tw-link-active group-has-[.invisible]:hover:bg-tw-bkg-hover`}>
                     <a
                         className="my-1 block"
                         onClick={() => handleGroupClick(item)}>
@@ -94,7 +107,6 @@ const Group: React.FC<Props> = props => {
                             item={el}
                             open={open}
                             selected={selected}
-                            setActiveGroup={setActiveGroup}
                             handleSelect={handleSelect}
                             handleCollapse={handleCollapse}
                         />

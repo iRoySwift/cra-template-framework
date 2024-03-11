@@ -15,7 +15,6 @@ const Logo: React.FC<Props> = () => {
     const {
         theme: { colors },
     } = useTailwind();
-    console.log("🚀 ~ colors:", colors);
 
     return (
         /**

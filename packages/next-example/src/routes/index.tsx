@@ -35,6 +35,24 @@ const dashboard: iRoute[] = [
         group: "Navigation2",
         icon: <Squares2X2Icon />,
     },
+    {
+        id: "navigation3",
+        title: "Navigation",
+        group: "Navigation",
+        icon: <Squares2X2Icon />,
+        children: [
+            {
+                id: "home3",
+                title: "Home",
+                url: "/3",
+            },
+            {
+                id: "dashboard3",
+                title: "Dashboard",
+                url: "/dashboard3",
+            },
+        ],
+    },
 ];
 
 export { dashboard };
