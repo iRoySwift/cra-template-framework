@@ -1,5 +1,5 @@
 // third-party libraries
-import { combineReducers } from "redux";
+import { combineReducers } from "@reduxjs/toolkit";
 
 // project import
 import menu from "./menu";
