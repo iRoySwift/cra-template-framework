@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Group from "./Group";
 
 export type iItem = {
@@ -28,6 +28,9 @@ const Menu: React.FC<Props> = props => {
             setSelected(item.id);
         }
     };
+    useEffect(() => {
+        setSelected(defaultSelectKey || "");
+    }, [defaultSelectKey]);
     return (
         <>
             {dataSource.map((item, i) => (

@@ -18,21 +18,19 @@ const Group: React.FC<Props> = props => {
     const isSelected = selected == item.id;
     const hasChildren = item.children && item.children.length;
 
-    const handleCollapse = useCallback(() => {
-        setOpen(open => {
-            return !open;
-        });
+    const handleCollapse = useCallback((open: boolean) => {
+        setOpen(open);
     }, []);
 
     const handleGroupClick = useCallback(
         (item: iItem) => {
             if (hasChildren) {
-                handleCollapse();
+                handleCollapse(!open);
             } else {
                 handleSelect(item);
             }
         },
-        [handleCollapse, handleSelect, hasChildren]
+        [handleCollapse, handleSelect, hasChildren, open]
     );
 
     let groupSelectClas = !drawer ? "drawer" : "expanded";

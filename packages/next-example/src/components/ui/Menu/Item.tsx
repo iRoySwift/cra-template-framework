@@ -7,7 +7,7 @@ interface Props {
     selected: string;
     item: iItem;
     handleSelect: (item: iItem) => void;
-    handleCollapse: () => void;
+    handleCollapse: (value: boolean) => void;
 }
 const Item: React.FC<Props> = props => {
     const { open, selected, item, handleSelect, handleCollapse } = props;
@@ -16,11 +16,16 @@ const Item: React.FC<Props> = props => {
     isSelected.current = selected == item.id;
 
     useEffect(() => {
-        isSelected.current && handleCollapse();
+        if (selected == item.id) {
+            isSelected.current = true;
+            handleCollapse(true);
+        } else {
+            isSelected.current = false;
+        }
         return () => {
             isSelected.current = false;
         };
-    }, [handleCollapse, item]);
+    }, [handleCollapse, item, selected]);
     return (
         <div
             className={`${open ? "visible" : "invisible hidden"} text-tw-fgd-2`}>
