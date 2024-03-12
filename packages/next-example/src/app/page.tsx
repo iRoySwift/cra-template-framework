@@ -1,11 +1,9 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
-import { Switch as HeadSwitch } from "@headlessui/react";
 import Switch from "@/components/ui/Switch";
 import Dropdown from "@/components/ui/Dropdown";
-import MainLayout from "@/layout/MainLayout";
 import Button from "@/components/ui/Button/Button";
+import React from "react";
 
 export default function Home() {
     const [enabled, setEnabled] = useState(false);

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import MainLayout from "@/layout/MainLayout";
@@ -12,13 +13,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
+    modal,
 }: Readonly<{
     children: React.ReactNode;
+    modal: React.ReactNode;
 }>) {
     return (
         <html lang="en">
             <body className="bg-th-bkg">
-                <MainLayout>{children}</MainLayout>
+                <MainLayout>
+                    <>
+                        <div id="modal-root" />
+                        {children}
+                        {modal}
+                    </>
+                </MainLayout>
             </body>
         </html>
     );

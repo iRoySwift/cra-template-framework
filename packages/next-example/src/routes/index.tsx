@@ -30,10 +30,17 @@ const dashboard: iRoute[] = [
         ],
     },
     {
-        id: "navigation2",
-        title: "Navigation2",
-        group: "Navigation2",
+        id: "nextjs",
+        title: "NextJS",
+        group: "NextJS",
         icon: <Squares2X2Icon />,
+        children: [
+            {
+                id: "intercepting",
+                title: "Intercepting Route",
+                url: "/photos",
+            },
+        ],
     },
     {
         id: "navigation3",

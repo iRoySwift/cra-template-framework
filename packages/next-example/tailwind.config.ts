@@ -11,6 +11,13 @@ const config: Config = {
     darkMode: ["class", '[data-theme="dark"]'],
     theme: {
         extend: {
+            gridTemplateColumns: {
+                // Simple 16 column grid
+                "200": "repeat(3, 200px)",
+
+                // Complex site-specific column configuration
+                footer: "200px minmax(900px, 1fr) 100px",
+            },
             keyframes: {
                 ripple: {
                     "0%": {
