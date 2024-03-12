@@ -53,42 +53,44 @@ const Group: React.FC<Props> = props => {
 
     // group class
     let groupSelectClas = !drawer ? "drawer" : "expanded";
+    if (!hasChildren) {
+        groupSelectClas += " hover:!bg-tw-bkg-hover 1 ";
+    }
     if (!drawer) {
-        groupSelectClas = hasChildren ? "" : " hover:bg-tw-bkg-hover ";
-        groupSelectClas +=
-            !hasChildren && isSelected
-                ? " border-r-2 border-tw-link-active bg-tw-bkg-hover text-tw-link-active "
-                : "";
+        // groupSelectClas +=
+        //     !hasChildren && isSelected
+        //         ? " border-r-2 border-tw-link-active bg-tw-bkg-hover text-tw-link-active 2"
+        //         : "";
     } else {
-        groupSelectClas = isSelected
-            ? " text-tw-link-active bg-tw-bkg-hover hover:!bg-tw-bkg-hover "
-            : " hover:bg-tw-bkg-hover ";
+        // groupSelectClas = isSelected
+        //     ? " text-tw-link-active bg-tw-bkg-hover hover:!bg-tw-bkg-hover "
+        //     : " hover:bg-tw-bkg-hover 3";
     }
 
     return (
         <div>
             <ul className="group">
-                {!drawer && (
+                {drawer && (
                     <div className="mb-3 pl-6 text-xs text-tw-fgd-3">
                         {item.group}
                     </div>
                 )}
                 {/*  */}
                 <div
-                    className={`text-tw-fgd-2 ${drawer ? "m-2 mx-3 rounded-md hover:bg-tw-bkg-hover-2" : "p-2 pl-6 pr-4"} ${groupSelectClas} group-has-[.selected]:text-tw-link-active group-has-[.invisible]:hover:bg-tw-bkg-hover`}>
+                    className={`text-tw-fgd-2 ${drawer ? "p-2 pl-6 pr-4" : "m-2 mx-3 rounded-md hover:bg-tw-bkg-hover-2"} ${groupSelectClas} group-has-[.selected]:text-tw-link-active group-has-[.invisible]:hover:bg-tw-bkg-hover`}>
                     <a
                         className="my-1 block"
                         onClick={() => handleGroupClick(item)}>
                         <div
                             className={`flex  cursor-pointer items-center justify-between text-sm leading-relaxed `}>
                             <div
-                                className={`${drawer ? " flex h-9 w-9 items-center justify-center px-2" : "mr-1 h-4 w-4"}`}>
+                                className={`${drawer ? "mr-1 h-4 w-4 " : "flex h-9 w-9 items-center justify-center px-2"}`}>
                                 {item.icon}
                             </div>
-                            {!drawer && (
+                            {drawer && (
                                 <div className="my-1 flex-1">{item.title}</div>
                             )}
-                            {!drawer && hasChildren && (
+                            {drawer && hasChildren && (
                                 <div className="w-3">
                                     {open ? (
                                         <ChevronUpIcon className="h-4 w-4" />
@@ -100,7 +102,7 @@ const Group: React.FC<Props> = props => {
                         </div>
                     </a>
                 </div>
-                {!drawer &&
+                {drawer &&
                     item.children?.map((el, i) => (
                         <Item
                             key={i}

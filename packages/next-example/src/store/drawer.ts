@@ -7,7 +7,7 @@ type iUseDrawerStore = {
 };
 
 const useDrawerStore = create<iUseDrawerStore>(set => ({
-    drawer: false,
+    drawer: true,
     openDrawer: () => set({ drawer: true }),
     closeDrawer: () => set({ drawer: false }),
 }));
