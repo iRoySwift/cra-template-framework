@@ -16,6 +16,7 @@ const Group: React.FC<Props> = props => {
     const { item, selected, drawer, handleSelect } = props;
     const [open, setOpen] = useState(false);
     const [isSelected, setIsSelected] = useState(false);
+    const [isActive, setIsActive] = useState(false);
 
     const hasChildren = item.children && item.children.length;
 
@@ -41,30 +42,33 @@ const Group: React.FC<Props> = props => {
                 return el.id == selected;
             });
         if (selected == item.id || el) {
-            setIsSelected(true);
+            setIsActive(true);
         } else {
-            setIsSelected(false);
+            setIsActive(false);
         }
 
         return () => {
-            setIsSelected(false);
+            setIsActive(false);
         };
     }, [hasChildren, item, selected]);
 
     // group class
-    let groupSelectClas = !drawer ? "drawer" : "expanded";
-    if (!hasChildren) {
-        groupSelectClas += " hover:!bg-tw-bkg-hover 1 ";
-    }
-    if (!drawer) {
-        // groupSelectClas +=
-        //     !hasChildren && isSelected
-        //         ? " border-r-2 border-tw-link-active bg-tw-bkg-hover text-tw-link-active 2"
-        //         : "";
+    let groupSelectClass = !drawer ? "drawer " : "expanded ";
+    if (drawer) {
+        groupSelectClass += "p-2 pl-6 pr-4 ";
+        if (!hasChildren) {
+            groupSelectClass += "hover:!bg-tw-bkg-hover ";
+            if (isActive) {
+                groupSelectClass +=
+                    "border-r-2 border-tw-link-active bg-tw-bkg-hover text-tw-link-active ";
+            }
+        }
     } else {
-        // groupSelectClas = isSelected
-        //     ? " text-tw-link-active bg-tw-bkg-hover hover:!bg-tw-bkg-hover "
-        //     : " hover:bg-tw-bkg-hover 3";
+        groupSelectClass += "m-2 mx-3 rounded-md hover:bg-tw-bkg-hover-2 ";
+        if (isActive) {
+            groupSelectClass +=
+                "text-tw-link-active bg-tw-bkg-hover hover:!bg-tw-bkg-hover ";
+        }
     }
 
     return (
@@ -77,7 +81,7 @@ const Group: React.FC<Props> = props => {
                 )}
                 {/*  */}
                 <div
-                    className={`text-tw-fgd-2 ${drawer ? "p-2 pl-6 pr-4" : "m-2 mx-3 rounded-md hover:bg-tw-bkg-hover-2"} ${groupSelectClas} group-has-[.selected]:text-tw-link-active group-has-[.invisible]:hover:bg-tw-bkg-hover`}>
+                    className={`text-tw-fgd-2 ${groupSelectClass} group-has-[.selected]:text-tw-link-active group-has-[.invisible]:hover:bg-tw-bkg-hover`}>
                     <a
                         className="my-1 block"
                         onClick={() => handleGroupClick(item)}>
