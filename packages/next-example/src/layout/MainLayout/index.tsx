@@ -16,7 +16,10 @@ const MainLayout: React.FC<Props> = props => {
         <div className="flex min-h-screen w-full">
             <Header drawer={drawer} />
             <Drawer drawer={drawer} />
-            <main className="min-h-screen w-full">{children}</main>
+            <main
+                className={`mt-[60px] min-h-screen w-full ${drawer ? "ml-[260px]" : "ml-[60px]"}`}>
+                {children}
+            </main>
         </div>
     );
 };
