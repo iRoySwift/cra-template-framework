@@ -10,7 +10,8 @@ interface Props {
 }
 const LogoSelection: React.FC<Props> = ({ drawer }) => {
     return (
-        <div className="flex min-h-14 items-center justify-center p-2 pl-3">
+        <div
+            className={`flex h-[60px] items-center  overflow-hidden p-2 ${drawer ? "pl-6" : "justify-center"}`}>
             {drawer ? <Logo /> : <MiniLogo />}
         </div>
     );

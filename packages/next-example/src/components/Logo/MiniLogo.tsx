@@ -24,8 +24,8 @@ const MiniLogo: React.FC<Props> = () => {
          */
         <>
             <svg
-                width="79"
-                height="79"
+                width="60"
+                height="60"
                 viewBox="0 0 79 79"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg">
