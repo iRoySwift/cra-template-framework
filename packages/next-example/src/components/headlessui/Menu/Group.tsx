@@ -75,7 +75,7 @@ const Group: React.FC<Props> = props => {
         <div>
             <ul className="group">
                 {drawer && (
-                    <div className="my-3 pl-6 text-xs text-tw-fgd-3">
+                    <div className="text-tw-fgd-3 my-3 pl-6 text-xs">
                         {item.group}
                     </div>
                 )}
